@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NewsLetter</title>
+  </head>
+  <body>
+    <h2>NewsLetter</h2>
+    <br />
+    <form id="myform" name="myform">
+      <label for="Name">Name:</label>
+      <input
+        type="text"
+        required
+        name="Name"
+        id="Name"
+        pattern="[A-Za-z].{2,}"
+      />
+      <br /><br />
+      <label for="Email">Email:</label>
+      <input
+        type="email"
+        required
+        name="Email"
+        id="Email"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+      />
+      <br /><br />
+      <button type="submit" id="button">Submit for NewsLetter</button>
+    </form>
+    <p id="message"></p>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+    integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+    crossorigin="anonymous"
+  ></script>
+  <script type="text/javascript" src="script.js"></script>
+</html>
