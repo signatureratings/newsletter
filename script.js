@@ -15,20 +15,28 @@ myform.addEventListener('submit', async function (e) {
     console.log(nam.value)
     console.log(email.value)
     await axios
-      .post('/', {
+      .post('api/request', {
         NAME,
         EMAIL,
         DATE,
       })
       .then((response) => {
         console.log(response)
+        if (response.status === 200) {
+          message.innerText = 'Your Email is registered to the NewsLetter'
+        } else if (response.status === 203) {
+          message.innerText = 'Your Email is already registered to the NewsLetter'
+        }
       })
     email.value = ''
     nam.value = ''
-    message.innerText = 'Your Email is registered to the NewsLetter'
   } catch (err) {
     console.log(err.message)
-    message.innerText = 'There is an Error in our System'
+    if (err.message === 'Request failed with status code 403') {
+      message.innerText = 'Use Post Method to Access the Server'
+    } else {
+      message.innerText = 'There is an Error in internal System'
+    }
   }
   button.disabled = false
   button.innerHTML = 'Submit for NewsLetter'
